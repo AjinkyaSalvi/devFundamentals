@@ -2,7 +2,7 @@ package DataStructureMain;
 // 01. Main.java
 // Start of the code flow
 
-import DataStructureFiles.IntegerDS;
+import DataStructureFiles.IntegerDT;
 import java.util.Scanner;
 
 public class Main {
@@ -10,23 +10,27 @@ public class Main {
 		try {
 			//   ---------   ---------   ---------   Definitions   ---------
 			boolean stayInLoop = true;
-			IntegerDS ids = new IntegerDS();
+			IntegerDT idt = new IntegerDT();
 			Scanner scanner = new Scanner(System.in);
 
 			System.out.println("\nWelcome to Java - Data Structures.");
 			while (stayInLoop) {
 				//   ---------   ---------   ---------   Accept user input   ---------
 				System.out.print(
-					"\nEnter \"1\" to select Integers"+
-					"\nEnter \"0\" to Exit"+
-					"\n\nEnter your input: "
+					"Select \"1\" for Integers"+
+					"\nSelect \"0\" to Exit"+
+					"\nEnter your input: "
 				);
 				String UserInput = scanner.next();
 
 				//   ---------   ---------   ---------   Switch Case   ---------
 				switch (UserInput) {
 					case "1":
-						ids.integer();
+						try{
+							idt.integer();
+						} catch (Exception e2) {
+
+						}
 						break;
 
 					case "0":
@@ -40,9 +44,8 @@ public class Main {
 			}
 
 			scanner.close();
-		}
-		catch(Exception e) {
-			System.out.println("\nMain - Exception: "+ e.toString());
+		} catch(Exception e1) {
+			System.out.println("\nMain - Exception: "+ e1.toString());
 		}
 	}
 }
