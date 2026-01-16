@@ -15,31 +15,35 @@ public class Main {
 
 			System.out.println("\nWelcome to Java - Data Structures.");
 			while (stayInLoop) {
-				//   ---------   ---------   ---------   Accept user input   ---------
-				System.out.print(
-					"Select \"1\" for Integers"+
-					"\nSelect \"0\" to Exit"+
-					"\nEnter your input: "
-				);
-				String UserInput = scanner.next();
+				try {
+					//   ---------   ---------   ---------   Accept user input   ---------
+					System.out.print(
+						"Select \"1\" for Integers"+
+						"\nSelect \"0\" to Exit"+
+						"\nEnter your input: "
+					);
+					String UserInput = scanner.next();
 
-				//   ---------   ---------   ---------   Switch Case   ---------
-				switch (UserInput) {
-					case "1":
-						try{
-							idt.integer();
-						} catch (Exception e2) {
+					//   ---------   ---------   ---------   Switch Case   ---------
+					switch (UserInput) {
+						case "1":
+							try{
+								idt.integer();
+							} catch (Exception e3) {
+								System.out.println("\nInteger - Exception: "+ e3.toString());
+							}
+							break;
 
-						}
-						break;
+						case "0":
+							stayInLoop = false;
+							System.out.println("\nThank you for using Java - Data Structures by Ajinkya Salvi.");
+							break;
 
-					case "0":
-						stayInLoop = false;
-						System.out.println("\nThank you for using Java - Data Structures by Ajinkya Salvi.");
-						break;
-
-					default:
-						System.out.println("\nIncorrect input. Please try again.");
+						default:
+							System.out.println("\nIncorrect input. Please try again.");
+					}
+				} catch (Exception e2) {
+								System.out.println("\nStay in loop - Exception: "+ e2.toString());
 				}
 			}
 
