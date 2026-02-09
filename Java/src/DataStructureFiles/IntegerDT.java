@@ -1,4 +1,6 @@
 package DataStructureFiles;
+// 02. IntegerDT.java
+// 
 
 import java.util.Scanner;
 
@@ -6,7 +8,7 @@ import java.math.BigInteger;
 import java.math.BigDecimal;
 
 enum enumClass {
-	ENum01, ENum03, ENum02;
+	enum01, enum03, enum02;
 }
 
 public class IntegerDT {
@@ -16,307 +18,261 @@ public class IntegerDT {
 			boolean stayInLoop01 = true;
 			Scanner scanner = new Scanner(System.in);
 
-			System.out.println("\nWelcome to Java - Integer Data Type.");
-			while (stayInLoop01) {
+			System.out.println("""
+				\nInteger Data Type: Integer in Java is defined by the keyword "int".
+				int Stores whole numbers from -2,147,483,648 to 2,147,483,647.""");
+			while(stayInLoop01) {
 				//   ---------   ---------   ---------   Accept user input   ---------
-				System.out.print(
-					"Select \"1\" for Description"+
-					"\nSelect \"2\" for Operations"+
-					"\nSelect \"3\" for Methods"+
-					"\nSelect \"0\" to Exit"+
-					"\nEnter your input: "
-				);
-				String UserInput01 = scanner.next();
+				System.out.print("""
+					\nINTEGER MENU
+					Select "1" for Operations
+					Select "2" for Methods
+					Select "0" to go back to the MAIN MENU.
+					Enter your input:\s""");
+				String UserInput01 = scanner.nextLine();
 
 				//   ---------   ---------   ---------   Switch Case   ---------
-				switch (UserInput01) {
-					case "1":
-						System.out.println(
-							"Integer in Java is defined by the keyword \"int\"."+
-							"\nint Stores whole numbers from -2,147,483,648 to 2,147,483,647.\n"
-						);
-						break;
-
-					case "2":
-						System.out.println(
-							"\nWelcome to Java Integer - Arithmetic Operations Calculator."+
-							"\nSelect from below Arithmetic Operators:"+
-							"\n\"+\" for Addition"+
-							"\n\"-\" for Subtraction"+
-							"\n\"*\" for Multiplication"+
-							"\n\"/\" for Division"+
-							"\n\"%\" for Modulus (Returns the division remainder)"+
-							"\n\"++\" for Increment (Increases the value of a variable by 1)"+
-							"\n\"--\" for Decrement (Decreases the value of a variable by 1)"+
-							"\n\"C\" for Clear"+
-							"\n\"0\" to Exit"
-						);
+				switch(UserInput01) {
+					case "1" -> {
+						System.out.println("""
+							\nINTEGER ARITHMETIC OPERATIONS CALCULATOR MENU
+							Select from below Arithmetic Operators:
+							01. "+" for Addition
+							02. "-" for Subtraction
+							03. "*" for Multiplication
+							04. "/" for Division
+							05. "%" for Modulus. It returns the division remainder.
+							06. "++" for Increment. Increases the value of a variable by 1.
+							07. "--" for Decrement. Decreases the value of a variable by 1.
+							08. "C" to clear the memory.
+							09. "0" to go back to the INTEGER MENU.""");
 
 						//   ---------   ---------   ---------   Operations Calculator - Definitions   ---------
 						boolean stayInLoop02 = true;
 						int total=0, x=0;
+						String temp;
 
 						while(stayInLoop02) {
 							try {
 								//   ---------   ---------   ---------   Accept user input   ---------
 								System.out.print(
-									"\nTotal: "+ total +
-									"\nEnter an Arithmetic Operator from above: "
+								"\nTotal: "+ total +
+								"\nEnter an Arithmetic Operator from above: "
 								);
-								String UserInput02 = scanner.next();
+								String UserInput02 = scanner.nextLine();
 
 								if(
-									(UserInput02.equals("+")) || (UserInput02.equals("-")) ||
-									(UserInput02.equals("*")) || (UserInput02.equals("/")) ||
-									(UserInput02.equals("%"))
+									UserInput02.equals("+") || UserInput02.equals("-") ||
+									UserInput02.equals("*") || UserInput02.equals("/") ||
+									UserInput02.equals("%")
 								) {
 									System.out.print("Enter the Integer: ");
 									x = scanner.nextInt();
+									temp = scanner.nextLine();
 								}
 
 								//   ---------   ---------   ---------   Arithmetic Operations Calculation   ---------
 								switch(UserInput02) {
-									case "+":
-										total = total+x;
-										break;
-
-									case "-":
-										total = total-x;
-										break;
-
-									case "*":
-										total = total*x;
-										break;
-
-									case "/":
-										total = total/x;
-										break;
-
-									case "%":
-										total = total%x;
-										break;
-
-									case "++":
-										total++;
-										break;
-
-									case "--":
-										total--;
-										break;
-
-									case "C":
-										total = 0;
-										break;
-
-									case "0":
-										stayInLoop02 = false;
-										break;
-
-									default:
-										System.out.println("\nIncorrect input. Please try again.");
+									case "+" -> total = total+x; // 01. Addition
+									case "-" -> total = total-x; // 02. Subtraction
+									case "*" -> total = total*x; // 03. Multiplication
+									case "/" -> total = total/x; // 04. Division
+									case "%" -> total = total%x; // 05. Modulus
+									case "++" -> total++; // 06. Increment
+									case "--" -> total--; // 07. Decrement
+									case "C" -> total = 0; // 08. Clear
+									case "0" -> stayInLoop02 = false; // 09. Exit
+									default -> System.err.println("Error - Incorrect input. Please try again."); // 10. Default
 								}
-							} catch (Exception e2) {
-								System.out.println("\nStay in loop 02 - Exception: "+ e2.toString());
+							} catch(Exception e02) {
+								System.err.println("\nError - IntegerDT stayInLoop02 exception: "+ e02.toString());
 							}
 						}
-						break;
+					}
 
-					case "3":
-						System.out.println(
-							"\nMost of the Java built-in methods for the \"int\" data type are used to convert other data types to integer."+
-							"\nSelect a data type from below to convert it into integer data type:"+
-							"\n\"S\" for String"+
-							"\n\"SDHO\" for Decimal, Hex, or Octal String"+
-							"\n\"BI\" for Big Integer"+
-							"\n\"BD\" for Big Decimal"+
-							"\n\"by\" for byte"+
-							"\n\"s\" for short"+
-							"\n\"l\" for long"+
-							"\n\"d\" for double"+
-							"\n\"c\" for char"+
-							"\n\"f\" for float"+
-							"\n\"e\" for enum"+
-							"\n\"bo\" for boolean"+
-							"\n\"0\" for exit"
-						);
+					case "2" -> {
+						System.out.println("\nInteger Methods: Most of the Java built-in methods for the \"int\" data type are used to convert other data types to integer.\n");
 
-						//   ---------   ---------   ---------   Integer Methods - Definitions   ---------
 						boolean stayInLoop03 = true;
-						int a=0, b=0;
-
 						while(stayInLoop03) {
 							try {
 								//   ---------   ---------   ---------   Accept user input   ---------
-								System.out.print("\nEnter the data type from above: ");
-								int i01, i02;
-								String UserInput03 = scanner.next();
+								System.out.print("""
+									INTEGER METHODS MENU
+									Select a data type from below to convert it into integer data type:
+									01. "S" for String
+									02. "SDHO" for Decimal, Hex, or Octal String
+									03. "BI" for Big Integer
+									04. "BD" for Big Decimal
+									05. "by" for byte
+									06. "s" for short
+									07. "l" for long
+									08. "d" for double
+									09. "c" for char
+									10. "f" for float
+									11. "e" for enum
+									12. "bo" for boolean
+									13. "0" to go back to the INTEGER MENU.
+									Enter the data type from above:\s""");
+								String UserInput03 = scanner.nextLine();
 
 								//   ---------   ---------   ---------   Display Integer Methods   ---------
 								switch(UserInput03) {
-									case "S":
+									// 01. String
+									case "S" -> {
 										System.out.print("Enter the value of the String: ");
-										String S = scanner.next();
-										i01 = Integer.parseInt(S);
-										i02 = Integer.valueOf(S).intValue();
+										String S = scanner.nextLine();
+
 										System.out.print(
-											"The value of your entered String using Integer.parseInt(String) is: "+ i01 +
-											"\nusing Integer.valueOf(String).intValue() is: "+ i02 +
+											"The value of your entered String using Integer.parseInt(String) is: "+ Integer.parseInt(S) +
+											"\nusing Integer.valueOf(String).intValue() is: "+ Integer.valueOf(S).intValue() +
 											"\n"
 										);
-										break;
+									}
 
-									case "SDHO":
+									// 02. Decimal, Hex, and Octal String
+									case "SDHO" -> {
 										System.out.print("Enter the value of Decimal, Hex, or Octal String: ");
-										String SDHO = scanner.next();
-										i01 = Integer.decode(SDHO);
-										System.out.print(
-											"The value of your entered String using Integer.decode(String) is: "+ i01 +
-											"\n"
-										);
-										break;
+										String SDHO = scanner.nextLine();
 
-									case "BI":
+										System.out.print("The value of your entered String using Integer.decode(String) is: "+ Integer.decode(SDHO) +
+										"\n");
+									}
+
+									// 03. BigInteger
+									case "BI" -> {
 										System.out.print("Enter the value of the BigInteger: ");
 										BigInteger BI = scanner.nextBigInteger();
-										i01 = BI.intValue();
-										i02 = BI.intValueExact();
+
 										System.out.print(
-											"The value of your entered BigInteger using BigInteger.intValue() is: "+ i01 +
-											"\nusing BigInteger.intValueExact() is: "+ i02 +
+											"The value of your entered BigInteger using BigInteger.intValue() is: "+ BI.intValue() +
+											"\nusing BigInteger.intValueExact() is: "+ BI.intValueExact() +
 											"\n"
 										);
-										break;
+									}
 
-									case "BD":
+									// 04. BigDecimal
+									case "BD" -> {
 										System.out.print("Enter the value of the BigDecimal: ");
 										BigDecimal BD = scanner.nextBigDecimal();
-										i01 = BD.intValue();
-										i02 = BD.intValueExact();
+
 										System.out.print(
-											"The value of your entered BigDecimal using BigDecimal.intValue() is: "+ i01 +
-											"\nusing BigDecimal.intValueExact() is: "+ i02 +
+											"The value of your entered BigDecimal using BigDecimal.intValue() is: "+ BD.intValue() +
+											"\nusing BigDecimal.intValueExact() is: "+ BD.intValueExact() +
 											"\n"
 										);
-										break;
+									}
 
-									case "by":
+									// 05. byte
+									case "by" -> {
 										System.out.print("Enter the value of the byte: ");
 										byte by = scanner.nextByte();
-										i01 = Byte.toUnsignedInt(by);
-										i02 = (int) by;
+
 										System.out.print(
-											"The value of your entered byte using Byte.toUnsignedInt(byte) is: "+ i01 +
-											"\nusing (int) byte is: "+ i02 +
+											"The value of your entered byte using Byte.toUnsignedInt(byte) is: "+ Byte.toUnsignedInt(by) +
+											"\nusing (int) byte is: "+ (int) by +
 											"\n"
 										);
-										break;
+									}
 
-									case "s":
+									// 06. short
+									case "s" -> {
 										System.out.print("Enter the value of the short: ");
 										short s = scanner.nextShort();
-										i01 = Short.toUnsignedInt(s);
-										i02 = (int) s;
+
 										System.out.print(
-											"The value of your entered short using Short.toUnsignedInt(short) is: "+ i01 +
-											"\nusing (int) short is: "+ i02 +
+											"The value of your entered short using Short.toUnsignedInt(short) is: "+ Short.toUnsignedInt(s) +
+											"\nusing (int) short is: "+ (int) s +
 											"\n"
 										);
-										break;
+									}
 
-									case "l":
+									// 07. long
+									case "l" -> {
 										System.out.print("Enter the value of the long: ");
 										long l = scanner.nextLong();
-										i01 = Math.toIntExact(l);
-										i02 = (int) l;
+
 										System.out.print(
-											"The value of your entered long using Math.toIntExact(long) is: "+ i01 +
-											"\nusing (int) long is: "+ i02 +
+											"The value of your entered long using Math.toIntExact(long) is: "+ Math.toIntExact(l) +
+											"\nusing (int) long is: "+ (int) l +
 											"\n"
 										);
-										break;
+									}
 
-									case "d":
+									// 08. double
+									case "d" -> {
 										System.out.print("Enter the value of the double: ");
 										double d = scanner.nextDouble();
-										i01 = (int) d;
+
 										System.out.print(
-											"The value of your entered double using (int) double is: "+ i01 +
+											"The value of your entered double using (int) double is: "+ (int) d +
 											"\n"
 										);
-										break;
+									}
 
-									case "c":
+									// 09. char
+									case "c" -> {
 										System.out.print("Enter the value of the char: ");
-										char c = scanner.next().charAt(0);
-										i01 = Character.getNumericValue(c);
-										i02 = (int) c;
+										char c = scanner.nextLine().charAt(0);
+
 										System.out.print(
-											"The value of your entered char using Math.toIntExact(char) is: "+ i01 +
-											"\nusing (int) char is: "+ i02 +
+											"The value of your entered char using Math.toIntExact(char) is: "+ Character.getNumericValue(c) +
+											"\nusing (int) char is: "+ (int) c +
 											"\n"
 										);
-										break;
+									}
 
-									case "f":
+									// 10. float
+									case "f" -> {
 										System.out.print("Enter the value of the float: ");
 										float f = scanner.nextFloat();
-										i01 = Math.round(f);
-										i02 = (int) f;
+
 										System.out.print(
-											"The value of your entered float using Math.round(float) is: "+ i01 +
-											"\nusing (int) float is: "+ i02 +
+											"The value of your entered float using Math.round(float) is: "+ Math.round(f) +
+											"\nusing (int) float is: "+ (int) f +
 											"\n"
 										);
-										break;
+									}
 
-									case "e":
+									// 11. enum
+									case "e" -> {
+										System.out.print("""
+											"enum" values cannot be changed at the runtime.
+											So enter one of the "enum01", "enum03", and "enum02" enums to get its ordinal:\s""");
+										String e = scanner.nextLine();
+
 										System.out.print(
-											"\"enum\" values cannot be changed at the runtime."+
-											"\nSo enter one of the \"ENum01\", \"ENum03\", and \"ENum02\" enums to get its ordinal: "
-										);
-										String e = scanner.next();
-										i01 = enumClass.valueOf(e).ordinal();
-										System.out.print(
-											"The ordinal value of your entered enum using enumClass.valueOf(enum).ordinal() is: "+ i01 +
+											"The ordinal value of your entered enum using enumClass.valueOf(enum).ordinal() is: "+ enumClass.valueOf(e).ordinal() +
 											"\n"
 										);
-										break;
+									}
 
-									case "bo":
+									// 12. boolean
+									case "bo" -> {
 										System.out.print("Enter the value of boolean: ");
 										boolean bo = scanner.nextBoolean();
-										i01 = bo? 1: 0;
+
 										System.out.print(
-											"The value of your entered boolean using boolean? 1: 0 is: "+ i01 +
+											"The value of your entered boolean using boolean? 1: 0 is: "+ (bo? 1: 0) +
 											"\n"
 										);
-										break;
+									}
 
-									case "0":
-										stayInLoop03 = false;
-										break;
-
-									default:
-										System.out.println("\nIncorrect input. Please try again.");
+									case "0" -> stayInLoop03 = false; // 13. Exit
+									default -> System.err.println("\nError - Incorrect input. Please try again."); // 14. Default
 								}
-							} catch (Exception e3) {
-								System.out.println("\nStay in loop 03 - Exception: "+ e3.toString());
+							} catch(Exception e03) {
+								System.err.println("\nError - IntegerDT stayInLoop03 exception: "+ e03.toString());
 							}
 						}
-						break;
+					}
 
-					case "0":
-						stayInLoop01 = false;
-						break;
-
-					default:
-						System.out.println("\nIncorrect input. Please try again.");
+					case "0" -> stayInLoop01 = false; // Exit
+					default -> System.err.println("\nError - Incorrect input. Please try again."); // Default
 				}
 			}
-
-		} catch(Exception e1) {
-			System.out.println("\nIntegerDT - Exception: "+ e1.toString());
+		} catch(Exception e01) {
+			System.err.println("\nError - IntegerDT exception: "+ e01.toString());
 		}
-		return;
 	}
 }
