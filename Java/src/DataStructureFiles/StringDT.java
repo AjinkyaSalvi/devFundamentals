@@ -1,26 +1,26 @@
 package DataStructureFiles;
+// 03. StringDT.java
+// Provides different String methods.
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Scanner;
+import java.math.BigInteger;
+import java.math.BigDecimal;
 
 public class StringDT {
 	public void string() throws Exception {
 		try {
 			//   ---------   ---------   ---------   StringDT - Definitions   ---------
-			boolean stayInLoop01 = true;
 			String temp;
+			boolean stayInLoop01 = true;
 			Scanner scanner = new Scanner(System.in);
 
-			System.out.println(
-				"\nString Data Type: Strings allow to store character and numbers in a sequential order in form of words or sentences."
-			);
+			System.out.println("\nString Data Type: Strings allow to store character and numbers in a sequential order in form of words or sentences.");
 			while(stayInLoop01) {
 				try {
 					//   ---------   ---------   ---------   Accept user input   ---------
 					String s01="a", s02="b";
 					System.out.print("""
-						\nSTRING OPERATIONS MENU:
+						\nSTRING METHODS MENU
 						01. Select "e" for equals. Checks if two Strings have exact same contents. Used to verify String equality in if statements or loops.
 						02. Select "l" for length. Provides the number of characters in the String. Used for loops, bounds checking, sizing up arrays, or iterating or slicing Strings without going out of bounds.
 						03. Select "ca" for charAt. Provides the character at given index position in the String. Used for parsing or manipulating individual characters.

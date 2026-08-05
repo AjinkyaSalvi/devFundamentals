@@ -1,9 +1,8 @@
 package DataStructureFiles;
 // 02. IntegerDT.java
-// 
+// Provides different Integer arithmetic operations and Integer methods.
 
 import java.util.Scanner;
-
 import java.math.BigInteger;
 import java.math.BigDecimal;
 
@@ -25,8 +24,8 @@ public class IntegerDT {
 				//   ---------   ---------   ---------   Accept user input   ---------
 				System.out.print("""
 					\nINTEGER MENU
-					Select "1" for Operations
-					Select "2" for Methods
+					Select "1" for int operations
+					Select "2" for int methods
 					Select "0" to go back to the MAIN MENU.
 					Enter your input:\s""");
 				String UserInput01 = scanner.nextLine();

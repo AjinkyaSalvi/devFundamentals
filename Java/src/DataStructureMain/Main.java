@@ -3,14 +3,16 @@ package DataStructureMain;
 // Start of the code flow
 
 import java.util.Scanner;
-
+import DataStructureFiles.ArrayDS;
 import DataStructureFiles.StringDT;
 import DataStructureFiles.IntegerDT;
+
 public class Main {
 	public static void main(String[] args) throws Exception {
 		try {
 			//   ---------   ---------   ---------   Definitions   ---------
 			boolean stayInLoop = true;
+			ArrayDS ads = new ArrayDS();
 			StringDT sdt = new StringDT();
 			IntegerDT idt = new IntegerDT();
 			Scanner scanner = new Scanner(System.in);
@@ -21,9 +23,10 @@ public class Main {
 					//   ---------   ---------   ---------   Accept user input   ---------
 					System.out.print("""
 						\nMAIN MENU
-						01. Select "1" for Integers
+						01. Select "1" for Integer
 						02. Select "2" for String
-						03. Select "0" to Exit
+						03. Select "3" for Array
+						04. Select "0" to Exit
 						Enter your input:\s""");
 					String UserInput = scanner.nextLine();
 
@@ -31,7 +34,7 @@ public class Main {
 					switch(UserInput) {
 						case "1" -> {
 							try{
-								idt.integer(); // 02. IntegerDT.java
+								idt.integer(); // 01. IntegerDT.java
 							} catch(Exception e03) {
 								System.err.println("\nError - Main IntegerDT exception: "+ e03.toString());
 							}
@@ -39,9 +42,17 @@ public class Main {
 
 						case "2" -> {
 							try{
-								sdt.string(); // 03. StringDT.java
+								sdt.string(); // 02. StringDT.java
 							} catch(Exception e04) {
 								System.err.println("\nError - Main StringDT exception: "+ e04.toString());
+							}
+						}
+
+						case "3" -> {
+							try{
+								ads.array(); // 03. ArrayDS.java
+							} catch(Exception e05) {
+								System.err.println("\nError - Main ArrayDS exception: "+ e05.toString());
 							}
 						}
 

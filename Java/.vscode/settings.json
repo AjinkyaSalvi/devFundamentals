@@ -6,7 +6,8 @@
     ],
     "editor.insertSpaces": false,
     "diffEditor.experimental.showEmptyDecorations": false,
-    "editor.fontFamily": "'Lexend'",
+    "editor.fontFamily": "'Comic Sans MS'",
     "editor.fontSize": 16,
-    "java.format.settings.url": ".vscode/java-formatter.xml"
+    "java.format.settings.url": ".vscode/java-formatter.xml",
+    "editor.tabSize": 5
 }
